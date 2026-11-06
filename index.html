@@ -3,210 +3,305 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Kanishka 🎀</title>
+<title>Happy Birthday Kanishka 🎂</title>
 
 <style>
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Trebuchet MS', sans-serif;
-    background: linear-gradient(135deg, #ffe1ef, #eadcff);
-    color: #754568;
-    text-align: center;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe0ed, #e8dcff);
+    color: #57334f;
     min-height: 100vh;
+    text-align: center;
+    overflow-x: hidden;
 }
 
 .page {
     display: none;
     min-height: 100vh;
     padding: 35px 18px;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
-    animation: fade 0.6s ease;
 }
 
 .page.active {
     display: flex;
 }
 
-@keyframes fade {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 .card {
-    background: rgba(255,255,255,0.85);
-    padding: 30px;
-    border-radius: 25px;
     width: 100%;
-    max-width: 650px;
-    box-shadow: 0 10px 35px #b87da544;
+    max-width: 480px;
+    padding: 28px 20px;
+    background: rgba(255,255,255,0.88);
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(110,60,100,0.15);
 }
 
 h1 {
-    font-size: 35px;
-    margin-bottom: 18px;
-    color: #d65b9b;
+    font-size: clamp(27px, 7vw, 40px);
+    color: #e64d91;
+    margin-bottom: 16px;
 }
 
 h2 {
-    margin-bottom: 18px;
-    color: #bd5b9b;
+    color: #d94d91;
+    margin: 14px 0;
 }
 
 p {
-    line-height: 1.8;
+    font-size: 17px;
+    line-height: 1.7;
     margin: 12px 0;
-    font-size: 16px;
 }
 
 button {
     border: none;
-    background: #e879b0;
-    color: white;
-    padding: 13px 27px;
     border-radius: 30px;
-    font-size: 16px;
+    padding: 14px 27px;
+    margin: 10px 6px;
+    font-size: 17px;
+    font-weight: bold;
+    background: #ec66a5;
+    color: white;
     cursor: pointer;
-    margin: 12px 5px;
+    box-shadow: 0 5px 12px #e8a3c6;
     transition: 0.2s;
 }
 
+button:active {
+    transform: scale(0.95);
+}
+
 button:hover {
-    transform: scale(1.06);
-    background: #d95798;
+    background: #d94d91;
 }
 
 .secondary {
-    background: #a98bca;
+    background: #9b7bd3;
+    box-shadow: 0 5px 12px #c3b2e5;
 }
+
+/* PAGE 1 */
 
 .cat {
-    font-size: 85px;
+    font-size: 90px;
     margin: 15px;
+    animation: bounce 1.5s infinite;
 }
 
-.memory-box {
-    background: #fff0f7;
-    border: 2px dashed #e9a0c7;
-    border-radius: 18px;
-    padding: 18px;
-    margin: 15px 0;
+@keyframes bounce {
+    50% { transform: translateY(-10px); }
 }
+
+#noMessage {
+    display: none;
+    color: #e34c70;
+    font-weight: bold;
+}
+
+/* PAGE 2 */
+
+.photo {
+    width: min(220px, 75%);
+    height: 220px;
+    object-fit: cover;
+    border-radius: 22px;
+    border: 5px solid #ffc0db;
+    margin: 5px auto 15px;
+    display: block;
+    background: #ffe0ed;
+}
+
+.wishes {
+    text-align: left;
+    background: #fff0f7;
+    border-radius: 18px;
+    padding: 17px;
+    margin-top: 15px;
+}
+
+.wishes p {
+    font-size: 16px;
+}
+
+/* CAKE */
+
+#cakeArea {
+    display: none;
+    margin-top: 25px;
+    animation: appear 0.5s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.cake {
+    font-size: 100px;
+    margin: 10px;
+}
+
+.candles {
+    font-size: 35px;
+    letter-spacing: 7px;
+}
+
+.flames {
+    animation: flicker 0.35s infinite alternate;
+}
+
+@keyframes flicker {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0.45; transform: scale(0.8); }
+}
+
+#smoke {
+    display: none;
+    font-size: 35px;
+}
+
+/* PAGE 3 */
 
 .note {
     text-align: left;
-    background: #fff5fa;
-    padding: 22px;
-    border-radius: 18px;
-    line-height: 1.9;
+    background: #fff0f7;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px 0;
 }
 
-.small {
-    font-size: 13px;
-    opacity: 0.7;
-}
-
-#loading {
-    display: none;
-    font-size: 18px;
-    margin: 20px;
-}
-
-#birthday {
-    display: none;
-}
-
-#angry {
+#goodbyeScreen {
     display: none;
 }
 
 .heart {
-    color: #ed6a9e;
-    font-size: 22px;
+    font-size: 30px;
+    margin: 8px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1: MEMORIES -->
+<!-- PAGE 1: SURPRISE -->
 
-<section class="page active" id="memories">
+<section class="page active" id="page1">
     <div class="card">
 
-        <div class="cat">🐱🎀</div>
+        <div class="cat" id="cat">🐱</div>
 
-        <h1>Our Little Memories</h1>
+        <h1>Hey Kanishka! 💗</h1>
 
-        <p>
-            Some friendships are made of random conversations,
-            silly jokes and unforgettable moments. 💗
+        <p>Do you want a little birthday surprise? 🎁</p>
+
+        <div>
+            <button onclick="sayYes()">YES! 💖</button>
+            <button class="secondary" onclick="sayNo()">NO 🙄</button>
+        </div>
+
+        <p id="noMessage">
+            😾 Excuse me?! Itna attitude?
+            <br>Ek baar phir soch lo!
         </p>
 
-        <div class="memory-box">
-            <h2>✨ Friendship</h2>
-            <p>
-                Kabhi random baatein, kabhi hasi-mazaak,
-                kabhi chhoti si nok-jhok.
-                Hamari friendship ki apni hi vibe hai!
-            </p>
-        </div>
-
-        <div class="memory-box">
-            <h2>🌸 Little Moments</h2>
-            <p>
-                Teri funny baatein aur chhoti-chhoti memories
-                hamesha yaad rehne wali hain.
-            </p>
-        </div>
-
-        <div class="memory-box">
-            <h2>💗 More Memories Ahead</h2>
-            <p>
-                Aage bhi aise hi haste rehna,
-                baatein karte rehna aur achhi memories banate rehna.
-            </p>
-        </div>
-
-        <p class="heart">Made with friendship 💕</p>
-
-        <button onclick="showPage('note')">
-            Next Page ➜
+        <button id="tryAgain" style="display:none"
+                onclick="resetQuestion()">
+            Okay, try again 😼
         </button>
+
+        <p style="font-size:13px;">Made with 💗 by Virat</p>
+    </div>
+</section>
+
+
+<!-- PAGE 2: BIRTHDAY REVEAL -->
+
+<section class="page" id="page2">
+    <div class="card">
+
+        <img
+            src="kanishka.jpg"
+            alt="Kanishka's photo"
+            class="photo"
+        >
+
+        <h1>HAPPY BIRTHDAY</h1>
+        <h2 style="font-size:30px;">KANISHKA! 🎀</h2>
+
+        <div class="wishes">
+            <p>
+                Aaj ka din special hai, kyunki aaj birthday hai
+                ek aise insaan ka jo apni random baaton aur
+                funny moments se din bana deta hai! 😂💗
+            </p>
+
+            <p>
+                I hope teri life khushiyon, laughter,
+                success aur beautiful memories se bhari rahe.
+            </p>
+
+            <p>
+                Keep smiling, keep being yourself
+                and enjoy your special day! 🥳
+            </p>
+        </div>
+
+        <button onclick="startCake()">
+            LET'S SEE THE CAKE 🎂
+        </button>
+
+        <div id="cakeArea">
+
+            <h2>Make a Birthday Wish! ✨</h2>
+
+            <div class="candles" id="candles">
+                <span class="flames">🔥</span>
+                <span class="flames">🔥</span>
+                <span class="flames">🔥</span>
+            </div>
+
+            <div class="cake">🎂</div>
+
+            <div id="smoke">💨 💨 💨</div>
+
+            <p id="cakeMessage">
+                Your cake is waiting! 🎉
+            </p>
+
+        </div>
 
     </div>
 </section>
 
 
-<!-- PAGE 2: BIRTHDAY NOTE -->
+<!-- PAGE 3: BIRTHDAY NOTE -->
 
-<section class="page" id="note">
+<section class="page" id="page3">
+    <div class="card" id="noteCard">
 
-    <div class="card">
+        <div class="heart">💗 💌 💗</div>
 
-        <div class="cat">💌🐱</div>
-
-        <h1>A Little Birthday Note</h1>
+        <h1>A Little Note</h1>
+        <h2>From Virat</h2>
 
         <div class="note">
 
-            <h2>From Virat 💌</h2>
-
             <p>
-                Haan, pata hai thoda late hoon,
-                par HAPPY BIRTHDAY, Kanishka! 🥳💗
+                Haan, pata hai thoda late hoon, par HAPPY
+                BIRTHDAY, Kanishka! 🥳💗
             </p>
 
             <p>
-                2026 ka wish toh kar hi raha hoon,
-                saath mein 2027 ka advance wish bhi le lena.
-                Ek message mein do saal ki wishes! 😂
+                2026 ka wish toh kar hi raha hoon, saath mein
+                2027 ka advance wish bhi le lena. Ek message
+                mein do saal ki wishes! 😂
             </p>
 
             <p>
@@ -218,106 +313,36 @@ button:hover {
             <p>
                 I hope tujhe life mein bahut saari khushiyan,
                 success aur naye experiences milen.
-                Apne dreams poore karna aur hamesha
-                apni smile banaye rakhna.
+                Apne dreams poore karna aur hamesha apni
+                smile banaye rakhna.
             </p>
 
             <p>
                 Thank you for being a good friend.
-                Aise hi hamari friendship bani rahe
-                aur aage bhi bahut saari achhi memories create hon.
+                Aise hi hamari friendship bani rahe aur
+                aage bhi bahut saari achhi memories create hon.
             </p>
 
             <p>
                 Once again, Happy Birthday! 🎂✨
             </p>
 
-            <h2 style="text-align:right">From,<br>Virat 💗</h2>
+            <p style="text-align:right;">
+                From, Virat 💗
+            </p>
 
         </div>
 
-        <button class="secondary" onclick="showPage('memories')">
-            ← Back
-        </button>
-
-        <button onclick="showPage('surprise')">
-            One Last Surprise 🎁
-        </button>
+        <button onclick="sayGoodbye()">BYEEEE 👋</button>
 
     </div>
 
-</section>
-
-
-<!-- PAGE 3: SURPRISE -->
-
-<section class="page" id="surprise">
-
-    <div class="card">
-
-        <div class="cat">🎀🐱🎀</div>
-
-        <div id="question">
-
-            <h1>One Last Surprise!</h1>
-
-            <p>
-                Kanishka, do you want a surprise? 👀
-            </p>
-
-            <button onclick="yesClicked()">YES 💗</button>
-
-            <button class="secondary" onclick="noClicked()">NO 🙃</button>
-
-        </div>
-
-        <div id="loading">
-            <div class="cat">🐱</div>
-            Loading your surprise...
-            <p>Please wait 3 seconds! ✨</p>
-        </div>
-
-        <div id="angry">
-
-            <div class="cat">😾</div>
-
-            <h1>HOW DARE YOU?!</h1>
-
-            <p>
-                Itni mehnat se surprise banaya hai! 😭
-            </p>
-
-            <button onclick="backToQuestion()">
-                Back to Question
-            </button>
-
-        </div>
-
-        <div id="birthday">
-
-            <div class="cat">🐱🎂🎉</div>
-
-            <h1>HAPPY BIRTHDAY!</h1>
-
-            <h2>KANISHKA 💗</h2>
-
-            <p>
-                May your days be filled with happiness,
-                laughter and beautiful memories!
-            </p>
-
-            <p>
-                Stay happy, stay blessed and keep smiling! 🌸
-            </p>
-
-            <div class="cat">🎀💖🎀</div>
-
-            <button onclick="showPage('memories')">
-                Relive Memories ↺
-            </button>
-
-        </div>
-
+    <div class="card" id="goodbyeScreen">
+        <div style="font-size:85px;">🐱💗</div>
+        <h1>BYEEEE KANISHKA!</h1>
+        <p>Hope you enjoyed your little surprise! 🎀</p>
+        <p>Have an amazing year ahead! ✨</p>
+        <h2>THE END 💗</h2>
     </div>
 
 </section>
@@ -325,49 +350,108 @@ button:hover {
 
 <script>
 
-function showPage(pageId) {
-
-    document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
+function showPage(pageNumber) {
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
     });
 
-    document.getElementById(pageId).classList.add('active');
+    document.getElementById("page" + pageNumber)
+        .classList.add("active");
 
     window.scrollTo(0, 0);
 }
 
 
-function yesClicked() {
+// PAGE 1
 
-    document.getElementById('question').style.display = 'none';
+function sayNo() {
+    document.getElementById("cat").textContent = "😾";
+    document.getElementById("noMessage").style.display = "block";
+    document.getElementById("tryAgain").style.display = "inline-block";
+}
 
-    document.getElementById('loading').style.display = 'block';
+function resetQuestion() {
+    document.getElementById("cat").textContent = "🐱";
+    document.getElementById("noMessage").style.display = "none";
+    document.getElementById("tryAgain").style.display = "none";
+}
+
+function sayYes() {
+    document.getElementById("cat").textContent = "😻";
+
+    const card = document.querySelector("#page1 .card");
+
+    card.innerHTML = `
+        <div class="cat">🐱💗</div>
+        <h1>YAYYYYY!</h1>
+        <p>Preparing your surprise...</p>
+        <h2 id="countdown">3</h2>
+    `;
+
+    let count = 3;
+
+    const timer = setInterval(() => {
+        count--;
+
+        if (count > 0) {
+            document.getElementById("countdown").textContent = count;
+        } else {
+            clearInterval(timer);
+            showPage(2);
+        }
+    }, 1000);
+}
+
+
+// PAGE 2: CAKE
+
+let cakeStarted = false;
+
+function startCake() {
+
+    if (cakeStarted) return;
+    cakeStarted = true;
+
+    document.getElementById("cakeArea").style.display = "block";
+
+    document.getElementById("cakeMessage").textContent =
+        "Enjoy your cake for 5 seconds! 🎂";
+
+    document.getElementById("cakeArea").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+    // Flames stay lit for exactly 5 seconds
 
     setTimeout(() => {
 
-        document.getElementById('loading').style.display = 'none';
+        document.getElementById("candles").style.display = "none";
 
-        document.getElementById('birthday').style.display = 'block';
+        document.getElementById("smoke").style.display = "block";
 
-    }, 3000);
+        document.getElementById("cakeMessage").textContent =
+            "Whooooosh! Candles blown out! 🎉";
 
+        // Move to Page 3 after the candles go out
+
+        setTimeout(() => {
+            showPage(3);
+        }, 1500);
+
+    }, 5000);
 }
 
 
-function noClicked() {
+// PAGE 3: GOODBYE
 
-    document.getElementById('question').style.display = 'none';
+function sayGoodbye() {
 
-    document.getElementById('angry').style.display = 'block';
+    document.getElementById("noteCard").style.display = "none";
 
-}
+    document.getElementById("goodbyeScreen").style.display = "block";
 
-
-function backToQuestion() {
-
-    document.getElementById('angry').style.display = 'none';
-
-    document.getElementById('question').style.display = 'block';
+    window.scrollTo(0, 0);
 
 }
 
